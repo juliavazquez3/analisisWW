@@ -1,0 +1,20 @@
+Executable = /nfs/cms/vazqueze/analisisWW/hcondor/run_job_fBD.sh
+
+requirements = stringListIMember("DCACHE_NFS", TARGET.WN_property, ",")
+
+request_cpus=4
+
+Log    = fBD$(ClusterId).$(ProcId).log
+Output = fBD$(ClusterId).$(ProcId).out
+Error  = fBD$(ClusterId).$(ProcId).err
+
+queue arguments from (
+  2016
+  2016B
+  2017
+  2018
+  2016 SV
+  2016B SV
+  2017 SV
+  2018 SV
+)

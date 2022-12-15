@@ -1,0 +1,24 @@
+Executable = /nfs/cms/vazqueze/analisisWW/hcondor/run_job.sh
+
+requirements = stringListIMember("DCACHE_NFS", TARGET.WN_property, ",")
+
+request_cpus=4
+
+Log    = check$(ClusterId).$(ProcId).log
+Output = check$(ClusterId).$(ProcId).out
+Error  = check$(ClusterId).$(ProcId).err
+
+queue arguments from (
+  allMC 2016 mc SV
+  M 2016 data SV
+  E 2016 data SV
+  allMC 2016B mc SV
+  M 2016B data SV
+  E 2016B data SV
+  allMC 2017 mc SV
+  M 2017 data SV
+  E 2017 data SV
+  allMC 2018 mc SV
+  M 2018 data SV
+  E 2018 data SV
+)

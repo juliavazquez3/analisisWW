@@ -1,0 +1,16 @@
+Executable = /nfs/cms/vazqueze/analisisWW/hcondor/run_job_qcd.sh
+
+requirements = stringListIMember("DCACHE_NFS", TARGET.WN_property, ",")
+
+request_cpus=4
+
+Log    = QCD$(ClusterId).$(ProcId).log
+Output = QCD$(ClusterId).$(ProcId).out
+Error  = QCD$(ClusterId).$(ProcId).err
+
+queue arguments from (
+  2018
+  2017
+  2016B
+  2016
+)
